@@ -19,7 +19,7 @@ public class JogadorRepository {
     public Jogador salvar(Jogador jogador) {
         jdbcClient.sql("INSERT INTO jogadores (nome, email, telefone, codinome, grupo_codinome) VALUES (?, ?, ?, ?, ?)")
                 .params(jogador.nome(), jogador.email(), jogador.telefone(), jogador.codinome(),
-                        jogador.grupoCodinome().getNome())
+                        jogador.grupoCodinome().name())
                 .update();
 
         return jogador;
