@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Listagem de Jogadores</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="mb-4">Lista de Jogadores</h2>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Codinome</th>
+                    <th>Grupo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="jogador : ${jogadores}">
+                    <td th:text="${jogador.nome}"></td>
+                    <td th:text="${jogador.email}"></td>
+                    <td th:text="${jogador.telefone}"></td>
+                    <td th:text="${jogador.codinome}"></td>
+                    <td th:text="${jogador.grupoCodinome.getNome()}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
+            <a th:href="@{/cadastro-jogador}" class="btn btn-primary">
+                <i class="bi bi-plus-circle me-2"></i>
+                Cadastrar Novo Jogador
+            </a>
+        </div>
+    </div>
+</body>
+</html>

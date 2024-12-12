@@ -1,5 +1,17 @@
 package br.com.joaofilipe.desafio_cadastro_jogadores.model;
 
-public record Jogador(String nome, String email, String telefone, String codinome, GrupoCodinome grupoCodinome) {
+import org.springframework.validation.annotation.Validated;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+@Validated
+public record Jogador(
+        @NotBlank String nome,
+        @NotBlank @Email String email,
+        String telefone,
+        String codinome,
+        @NotNull GrupoCodinome grupoCodinome) {
 
 }
