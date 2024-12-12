@@ -43,6 +43,9 @@
                         <label th:for="${grupo.name()}" th:text="${grupo.getNome()}" class="form-check-label"></label>
                     </div>
                     <div class="invalid-feedback" th:if="${#fields.hasErrors('grupoCodinome')}" th:errors="*{grupoCodinome}"/>
+                    <div th:if="${errorMessage}">
+                        <p th:text="${errorMessage}" style="color: red;"></p>
+                    </div>
                 </div>
             </div>
             
